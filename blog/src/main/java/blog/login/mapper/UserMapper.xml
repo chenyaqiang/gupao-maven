@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="blog.login.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="blog.login.vo.User" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="user_name" property="userName" jdbcType="CHAR" />
+    <result column="user_code" property="userCode" jdbcType="CHAR" />
+    <result column="user_password" property="userPassword" jdbcType="CHAR" />
+    <result column="cookie_password" property="cookiePassword" jdbcType="CHAR" />
+    <result column="user_type" property="userType" jdbcType="CHAR" />
+    <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_name, user_code, user_password, cookie_password, user_type, phone_number, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from blog_user
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from blog_user
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="blog.login.vo.User" >
+    insert into blog_user (id, user_name, user_code, 
+      user_password, cookie_password, user_type, 
+      phone_number, create_time, modify_time
+      )
+    values (#{id,jdbcType=CHAR}, #{userName,jdbcType=CHAR}, #{userCode,jdbcType=CHAR}, 
+      #{userPassword,jdbcType=CHAR}, #{cookiePassword,jdbcType=CHAR}, #{userType,jdbcType=CHAR}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="blog.login.vo.User" >
+    insert into blog_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="userPassword != null" >
+        user_password,
+      </if>
+      <if test="cookiePassword != null" >
+        cookie_password,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=CHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=CHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=CHAR},
+      </if>
+      <if test="cookiePassword != null" >
+        #{cookiePassword,jdbcType=CHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="blog.login.vo.User" >
+    update blog_user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=CHAR},
+      </if>
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=CHAR},
+      </if>
+      <if test="userPassword != null" >
+        user_password = #{userPassword,jdbcType=CHAR},
+      </if>
+      <if test="cookiePassword != null" >
+        cookie_password = #{cookiePassword,jdbcType=CHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="blog.login.vo.User" >
+    update blog_user
+    set user_name = #{userName,jdbcType=CHAR},
+      user_code = #{userCode,jdbcType=CHAR},
+      user_password = #{userPassword,jdbcType=CHAR},
+      cookie_password = #{cookiePassword,jdbcType=CHAR},
+      user_type = #{userType,jdbcType=CHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

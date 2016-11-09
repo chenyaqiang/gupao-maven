@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://www.mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<classPathEntry location="D:/MavenRepository/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar"/>
+  <context id="wf" >
+  <commentGenerator>  
+	    <property name="suppressAllComments" value="true" />  
+	    <property name="suppressDate" value="true" />
+	</commentGenerator> 
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+    				connectionURL="jdbc:mysql://localhost:3306/blog" userId="root" password="123456" />
+    <javaModelGenerator targetPackage="blog.login.vo" targetProject="D:/myworkspace/blog/src/main/java" />
+    <sqlMapGenerator targetPackage="blog.login.mapper" targetProject="D:/myworkspace/blog/src/main/java" />
+    <javaClientGenerator targetPackage="blog.login.dao" targetProject="D:/myworkspace/blog/src/main/java"  type="XMLMAPPER" />
+    <table  tableName="blog_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+  </context>
+</generatorConfiguration>
