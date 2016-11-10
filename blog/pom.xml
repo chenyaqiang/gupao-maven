@@ -183,6 +183,16 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.9</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
+		</dependency>
+		<dependency> 
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.7</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<defaultGoal>compile</defaultGoal>
@@ -232,8 +242,13 @@
 		            <configuration>  
 		                <source>1.7</source>  
 		                <target>1.7</target>  
+		             <encoding>UTF-8</encoding>
+	                  <compilerArguments>
+	                   <extdirs>src\main\webapp\WEB-INF\lib</extdirs>
+	                 </compilerArguments>
 		            </configuration>  
         	</plugin>  
+        	  
 		</plugins>
 		<pluginManagement>
 			<plugins>

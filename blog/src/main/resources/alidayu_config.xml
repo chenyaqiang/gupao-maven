@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alidayu appkey="23527088" appsecret="e2211e30053968e4cc20ed30cafe553e" url="https://eco.taobao.com/router/rest">
+    <template id="SMS_11380275" sign="验证码" smstype="normal" extend="">
+    </template>
+</alidayu>
