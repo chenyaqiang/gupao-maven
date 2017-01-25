@@ -1,7 +1,5 @@
 package blog.thread.join;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * joint用法，一个线程等待另一个线程结束再执行

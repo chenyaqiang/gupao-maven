@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 
 public class ExecutorTest {
 
@@ -17,7 +18,7 @@ public class ExecutorTest {
 		master.setQueue(queue);
 		newFixedThreadPool.execute(master);
 		List<Worker> workList = new ArrayList();
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 			Worker worker = new Worker();
 			worker.setQueue(queue);
 			newFixedThreadPool.execute(worker);
