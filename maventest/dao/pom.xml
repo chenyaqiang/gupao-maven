@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.seentao</groupId>
+    <artifactId>maventest</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.seentao</groupId>
+  <artifactId>dao</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>dao</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>com.seentao</groupId>
+      	<artifactId>util</artifactId>
+      	<version>${project.version}</version>
+    </dependency> 
+  </dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.seentao</groupId>
+				<artifactId>myplugin</artifactId>
+				<version>${project.version}</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>plugintest</goal>
+						</goals>
+						<configuration>
+							<soruceDir>${project.basedir}</soruceDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>  
+	
+  
+</project>
